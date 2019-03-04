@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'todo-app';
+  title = 'Todo Application';
+  items: {description: string; done: boolean}[];
+
+  newDescription;
+
+  constructor() {
+    this.items = [];
+  }
+
+  addItem() {
+    this.items.push({description: this.newDescription, done: false});
+    this.newDescription = '';
+  }
 }
