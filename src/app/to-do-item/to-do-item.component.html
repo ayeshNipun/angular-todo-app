@@ -1,4 +1,9 @@
-<div class="to-do-item">
-  <h2 class="title">Title : {{todoItem.title}} </h2>
-  <p class="description"> <span class="bold"> Description: </span> {{todoItem.description}} </p>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ todoItem.title }}</h5>
+    <p class="card-text">
+      {{ todoItem.description }}
+    </p>
+    <a href="#" class="card-link float-right">{{ todoItem.title }}</a>
+  </div>
 </div>
