@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToDoItemComponent } from './to-do-item/to-do-item.component';
+import { DashBoardComponent } from './dash-board/dash-board.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToDoItemComponent
+    ToDoItemComponent,
+    DashBoardComponent
   ],
   imports: [
     BrowserModule,

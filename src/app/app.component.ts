@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ToDoItem } from './to-do-item';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +7,6 @@ import { ToDoItem } from './to-do-item';
 })
 export class AppComponent {
   title = 'Todo Application';
-  items: ToDoItem[];
 
-  newItemTitle;
-  newItemDescription;
-
-  constructor() {
-    this.items = [];
-  }
-
-  addItem() {
-    this.items.push({title: this.newItemTitle, description: this.newItemDescription, done: false});
-    this.newItemDescription = '';
-    this.newItemTitle = '';
-  }
+  constructor() {}
 }
