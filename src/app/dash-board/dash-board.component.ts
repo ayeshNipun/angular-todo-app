@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToDoItem } from '../to-do-item';
+import { ToDoItemService } from '../to-do-item.service';
 
 @Component({
   selector: 'app-dash-board',
@@ -12,14 +13,18 @@ export class DashBoardComponent implements OnInit {
   newItemTitle;
   newItemDescription;
 
-  constructor() {
-    this.items = [];
+  constructor(private toDoItemService: ToDoItemService) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.items = [];
+    this.items.push(...this.toDoItemService.getAllTodoItems());
+  }
 
   addItem() {
-    this.items.push({ title: this.newItemTitle, description: this.newItemDescription, done: false });
+    const item: ToDoItem = { title: this.newItemTitle, description: this.newItemDescription, done: false };
+    this.items.push(item);
+    this.toDoItemService.addTodoItem(item);
     this.newItemDescription = '';
     this.newItemTitle = '';
   }

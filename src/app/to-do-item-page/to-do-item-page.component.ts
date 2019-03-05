@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToDoItemService } from '../to-do-item.service';
+import { ToDoItem } from '../to-do-item';
 
 @Component({
   selector: 'app-to-do-item-page',
@@ -7,13 +9,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./to-do-item-page.component.scss']
 })
 export class ToDoItemPageComponent implements OnInit {
-  title;
+  item:ToDoItem;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private toDoItemService: ToDoItemService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(param => {
-      this.title = param.get('id');
+      const title = param.get('id');
+      this.item = this.toDoItemService.getTodoItem(title);
     });
   }
 
