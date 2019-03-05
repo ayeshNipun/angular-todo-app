@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToDoItemComponent } from './to-do-item/to-do-item.component';
 import { DashBoardComponent } from './dash-board/dash-board.component';
+import { ToDoItemPageComponent } from './to-do-item-page/to-do-item-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToDoItemComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    ToDoItemPageComponent
   ],
   imports: [
     BrowserModule,
