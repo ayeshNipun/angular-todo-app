@@ -7,16 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Todo Application';
-  items: {description: string; done: boolean}[];
+  items: {title: string; description: string; done: boolean}[];
 
-  newDescription;
+  newItemTitle;
+  newItemDescription;
 
   constructor() {
     this.items = [];
   }
 
   addItem() {
-    this.items.push({description: this.newDescription, done: false});
-    this.newDescription = '';
+    this.items.push({title: this.newItemTitle, description: this.newItemDescription, done: false});
+    this.newItemDescription = '';
+    this.newItemTitle = '';
   }
 }

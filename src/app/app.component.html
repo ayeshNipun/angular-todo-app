@@ -1,13 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-  <h1> {{title}} </h1>
+  <h1>{{ title }}</h1>
   <section>
-    <ul>
-      <li *ngFor="let item of items"> {{item.description}}</li>
-    </ul>
+    <app-to-do-item *ngFor="let item of items" [todoItem]="item"></app-to-do-item>
   </section>
   <section>
-    <label for="">Description</label> <input [(ngModel)]="newDescription" type="text">
+    <label for=""> Title </label> <input [(ngModel)]="newItemTitle" type="text" /> <br><label for="">Description</label>
+    <input [(ngModel)]="newItemDescription" type="text" />
     <button (click)="addItem()">Add</button>
   </section>
 </div>
