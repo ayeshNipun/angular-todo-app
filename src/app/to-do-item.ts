@@ -1,5 +1,3 @@
 export class ToDoItem {
-  title: string;
-  description: string;
-  done: boolean;
+  constructor(public title: string, public description: string, public done: boolean) {}
 }

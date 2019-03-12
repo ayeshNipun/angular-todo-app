@@ -13,19 +13,18 @@ export class DashBoardComponent implements OnInit {
   newItemTitle;
   newItemDescription;
 
-  constructor(private toDoItemService: ToDoItemService) {
-  }
+  todoItemForm = new ToDoItem('', '', false);
+
+  constructor(private toDoItemService: ToDoItemService) {}
 
   ngOnInit() {
     this.items = [];
     this.items.push(...this.toDoItemService.getAllTodoItems());
   }
 
-  addItem() {
-    const item: ToDoItem = { title: this.newItemTitle, description: this.newItemDescription, done: false };
-    this.items.push(item);
-    this.toDoItemService.addTodoItem(item);
-    this.newItemDescription = '';
-    this.newItemTitle = '';
+  onSubmit($todoItemForm) {
+    this.items.push($todoItemForm.value);
+    this.toDoItemService.addTodoItem($todoItemForm.value);
+    $todoItemForm.resetForm();
   }
 }
