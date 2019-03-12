@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToDoItemService } from '../to-do-item.service';
 import { ToDoItem } from '../to-do-item';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-to-do-item-page',
@@ -9,9 +10,15 @@ import { ToDoItem } from '../to-do-item';
   styleUrls: ['./to-do-item-page.component.scss']
 })
 export class ToDoItemPageComponent implements OnInit {
-  item:ToDoItem;
+  item: ToDoItem;
+  taskList: {taskName: string; taskDescription: string}[];
 
-  constructor(private route: ActivatedRoute, private toDoItemService: ToDoItemService) { }
+  taskForm = new FormGroup({
+    taskName: new FormControl(''),
+    taskDescription: new FormControl('')
+  });
+
+  constructor(private route: ActivatedRoute, private toDoItemService: ToDoItemService) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(param => {
@@ -20,4 +27,9 @@ export class ToDoItemPageComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    if (!this.taskList) this.taskList = [];
+    this.taskList.push(this.taskForm.value);
+    this.taskForm.reset();
+  }
 }

@@ -4,6 +4,27 @@
     <p> {{item.description}} </p>
   </div>
   <div class="col-12">
-    <button class="btn btn-primary" routerLink="/dashboard">to Dashboard</button>
+    <button class="btn btn-primary" routerLink="/dashboard"> << to Dashboard</button>
   </div>
+</div>
+<div class="row">
+  <div class="col-4" *ngFor="let task of taskList">
+    <h2> task name :  {{task.taskName}} </h2>
+    <p> description :  {{task.taskDescription}} </p>
+  </div>
+</div>
+<div class="row">
+  <form class="col-12" (ngSubmit)="onSubmit()" [formGroup]="taskForm">
+    <div class="form-group">
+      <label for="title">Task Name</label>
+      <input id="title" type="text" formControlName="taskName" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="description">Task Description</label>
+      <input type="text" formControlName="taskDescription" class="form-control" id="description" />
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+  </form>
 </div>
